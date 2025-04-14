@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% if(locals.post){%>
+    <title><%= post.title %></title>
+    <%} else{%>
+    <title>Mia's Matcha Blog</title>
+    <%}%>
+    <link rel="icon" href="/images/matcha-logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chango&family=Cherry+Bomb+One&family=Fascinate+Inline&family=Hachi+Maru+Pop&family=Neucha&family=Ribeye+Marrow&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+
+  <body>
+    <%- include("./partials/header.ejs") %>
+    <div class="content">
+      <div class="welcome">
+        <%if(locals.post){%>
+        <h1><%= post.title %></h1>
+        <hr />
+        <p><%= post.text %></p>
+        <%}else{%>
+        <h1>No Blog Here!</h1>
+        <p>
+          Looks like this blog post was deleted! Return to the main page by
+          clicking on home.
+        </p>
+        <%}%>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

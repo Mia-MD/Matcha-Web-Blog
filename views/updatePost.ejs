@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Cherry+Bomb+One&family=Fascinate+Inline&family=Hachi+Maru+Pop&family=Neucha&family=Ribeye+Marrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Update Post</title>
+    <link rel="icon" href="/images/matcha-logo.webp"/>
+  </head>
+  <body>
+    <%- include("./partials/header.ejs") %>
+    <div class="content">
+      <div class="welcome">
+            <h1>Update Post</h1>
+                <%if(locals.formOption){%>
+                  <form action="/editPost" method="post">
+                    <%- include("./partials/formChoose.ejs") %>
+                <%}else{%>
+                  <form action="/postEdited" method="post">
+                    <label>Title</label>
+                  <br />
+                  <input type="text" name="blogTitle" value="<%=post.title%>"/>
+                  <br />
+                  <label>Blog Text</label>
+                  <br />
+                  <!--This is where i'd check for the post content and then maybe put it in the text area-->
+                  <textarea name="blogText"><%=post.text%></textarea>
+                  <br />
+                  <input type="submit" value="Edit" />
+                <%}%>
+                </form>
+          </div>
+    </div>
+    
+    
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
